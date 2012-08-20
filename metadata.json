@@ -1,0 +1,32 @@
+{
+  "name": "ssl",
+  "description": "Sets up SSL certs and keys from an encrypted data bag",
+  "long_description": "",
+  "maintainer": "Wes Morgan",
+  "maintainer_email": "cap10morgan@gmail.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "ssl": "Sets up SSL certs for web servers & whatever else needs them"
+  },
+  "version": "1.0.6"
+}
