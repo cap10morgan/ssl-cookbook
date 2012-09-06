@@ -10,12 +10,11 @@ search(:ssl, '*:*') do |s|
 
   key = ssl['key']
   key_file = "#{cert_domain}.key"
-  template "#{File.join node['ssl']['keys_dir'], key_file}" do
-    source "key.erb"
+  file "#{File.join node['ssl']['keys_dir'], key_file}" do
     owner 'root'
     group "#{node['ssl']['group']}"
     mode '0640'
-    variables :key => key
+    content key
   end
 
   # this is needed by nginx
