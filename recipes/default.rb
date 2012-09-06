@@ -5,8 +5,10 @@ search(:ssl, '*:*') do |s|
   install_cert(cert_domain, ssl['cert'])
 
   chain_certs = ssl['chain']
-  combined_chain_certs = chain_certs.join("\n")
-  install_cert(cert_domain, combined_chain_certs, :is_chain)
+  if chain_certs
+    combined_chain_certs = chain_certs.join("\n")
+    install_cert(cert_domain, combined_chain_certs, :is_chain)
+  end
 
   key = ssl['key']
   key_file = "#{cert_domain}.key"
