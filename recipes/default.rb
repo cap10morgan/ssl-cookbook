@@ -20,13 +20,15 @@ search(:ssl, '*:*') do |s|
   end
 
   # this is needed by nginx
-  combined_certs_file = "#{cert_domain}.combined.crt"
-  template "#{File.join node['ssl']['certs_dir'], combined_certs_file}" do
-    source "combined_certs.erb"
-    owner 'root'
-    group 'root'
-    mode '0644'
-    variables :chain_certs => chain_certs,
-              :domain_cert => ssl['cert']
+  if chain_certs
+    combined_certs_file = "#{cert_domain}.combined.crt"
+    template "#{File.join node['ssl']['certs_dir'], combined_certs_file}" do
+      source "combined_certs.erb"
+      owner 'root'
+      group 'root'
+      mode '0644'
+      variables :chain_certs => chain_certs,
+                :domain_cert => ssl['cert']
+    end
   end
 end
