@@ -1,3 +1,4 @@
+name             "ssl"
 maintainer       "Wes Morgan"
 maintainer_email "cap10morgan@gmail.com"
 license          "Apache 2.0"
