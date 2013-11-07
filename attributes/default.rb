@@ -1,12 +1,9 @@
 debian_root  = "/etc/ssl"
 debian_certs = "#{debian_root}/certs"
 debian_keys  = "#{debian_root}/private"
-
-case node['platform_family']
-when 'debian', 'ubuntu'
-  debian_group = "ssl-cert"
-when 'rhel'
-  debian_group = "root"
+debian_group = case node['platform_family']
+  when 'debian', 'ubuntu' then 'ssl-cert'
+  when 'rhel'             then 'root'
 end
 
 default['ssl']['certs_dir'] = debian_certs
