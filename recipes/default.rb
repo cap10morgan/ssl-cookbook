@@ -1,3 +1,16 @@
+
+# Create directories if they do not exist
+if node['platform_family'] == 'rhel'
+  [ node['ssl']['keys_dir'], node['ssl']['certs_dir'] ].each do |dir|
+    directory dir do
+      recursive true
+      owner 'root'
+      group node['ssl']['group']
+      mode '0755'
+    end
+  end
+end
+
 search(:ssl, '*:*') do |s|
   ssl = Chef::EncryptedDataBagItem.load("ssl", s['id'])
 
