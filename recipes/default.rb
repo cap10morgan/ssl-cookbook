@@ -1,14 +1,13 @@
 
 # Create directories if they do not exist
-[
-  node['ssl']['keys_dir'],
-  node['ssl']['certs_dir']
-].each do |dir|
-  directory dir do
-    recursive true
-    owner 'root'
-    group node['ssl']['group']
-    mode '0644'
+if node['plaform_family'] == 'rhel'
+  [ node['ssl']['keys_dir'], node['ssl']['certs_dir'] ].each do |dir|
+    directory dir do
+      recursive true
+      owner 'root'
+      group node['ssl']['group']
+      mode '0644'
+    end
   end
 end
 
