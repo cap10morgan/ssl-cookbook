@@ -1,6 +1,6 @@
 
 # Create directories if they do not exist
-if node['plaform_family'] == 'rhel'
+if node['platform_family'] == 'rhel'
   [ node['ssl']['keys_dir'], node['ssl']['certs_dir'] ].each do |dir|
     directory dir do
       recursive true
