@@ -6,7 +6,7 @@ if node['platform_family'] == 'rhel'
       recursive true
       owner 'root'
       group node['ssl']['group']
-      mode '0644'
+      mode '0755'
     end
   end
 end
