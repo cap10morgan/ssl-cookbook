@@ -1,8 +1,8 @@
 require 'openssl'
 
 def install_cert(name, cert, options={})
-  ca = options.delete(:ca)
-  chain = options.delete(:chain)
+  ca = options[:ca]
+  chain = options[:chain]
 
   suffix = ''
   suffix = '-ca' if ca
