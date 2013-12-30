@@ -15,7 +15,7 @@ ATTRIBUTES
 node['ssl']['certs_dir'] = '/etc/ssl/certs'
 node['ssl']['keys_dir']  = '/etc/ssl/keys'
 node['ssl']['group']     = 'ssl-cert'
-node['ssl']['domain']     = '*'
+node['ssl']['domain']    = '*'
 ```
 
 USAGE
@@ -33,11 +33,12 @@ store that in a key named "ca", and the recipe will install and symlink it in th
 **NOTE**: The certs and keys should all be on one line, with their newlines replaced
 by "\n". They will be stored correctly once placed on the server.
 
-Sample way to generate the data bag:
+Generating the data bag:
 
-`bundle exec knife solo data bag create ssl -d --data-bag-path data_bags -j '{"id":"caregeneral_com", "key":"private_key_of_caregeneral","cert":"certificate","chain":["cert", "cert"]}'`
+`knife data bag create ssl -d -j '{"id":"domain_com", "key":"private_key","cert":"certificate","chain":["cert", "cert"]}'`
 
-A sample data bag options `data_bags\keys\domain_com.json`:
+The data bag contents should look something like (note that the newlines are
+replaced by '\n' in the certs and keys):
 
 ```json
 {
