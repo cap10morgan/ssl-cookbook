@@ -1,4 +1,4 @@
-search(:ssl, '*:*') do |s|
+search(:ssl, "id:#{node['ssl']['domain']}") do |s|
   ssl = Chef::EncryptedDataBagItem.load("ssl", s['id'])
 
   cert_domain = ssl['id'].gsub('_', '.')
