@@ -6,3 +6,6 @@ debian_group = "ssl-cert"
 default['ssl']['certs_dir'] = debian_certs
 default['ssl']['keys_dir']  = debian_keys
 default['ssl']['group']     = debian_group
+
+default['ssl']['data_bag']  = 'ssl'
+default['ssl']['data_bag_query']  = '*:*'

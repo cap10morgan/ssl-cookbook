@@ -6,7 +6,7 @@ A recipe for setting up system-wide SSL certs on Ubuntu / Debian systems.
 REQUIREMENTS
 ============
 
-Ubuntu or Debian Linux system and an encrypted data bag named "ssl".
+Ubuntu or Debian Linux system and an encrypted data bag named "ssl" (or customized in node['ssl']['data_bag']).
 
 ATTRIBUTES
 ==========
@@ -14,6 +14,8 @@ ATTRIBUTES
     node['ssl']['certs_dir'] = '/etc/ssl/certs'
     node['ssl']['keys_dir']  = '/etc/ssl/keys'
     node['ssl']['group']     = 'ssl-cert'
+    node['ssl']['data_bag']  = 'ssl'
+    node['ssl']['data_bag_query']  = '*:*'
 
 USAGE
 =====

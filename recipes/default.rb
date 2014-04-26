@@ -1,5 +1,5 @@
-search(:ssl, '*:*') do |s|
-  ssl = Chef::EncryptedDataBagItem.load("ssl", s['id'])
+search(node['ssl']['data_bag'], node['ssl']['data_bag_query']) do |s|
+  ssl = Chef::EncryptedDataBagItem.load(node['ssl']['data_bag'], s['id'])
 
   cert_domain = ssl['id'].gsub('_', '.')
   install_cert(cert_domain, ssl['cert'])
